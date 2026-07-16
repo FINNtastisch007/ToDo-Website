@@ -1,6 +1,11 @@
-<input type="range" id="slider" min="0" max="100" value="50">
-<span id="value">50</span>
+<body>
+    <input type="range" class="slider" id="slider" min="0" max="1000" value="50" step="50">
+    <div id="content">
+        <span id="value">50xp</span>
+    </div>
+</body>
 
+<link rel="stylesheet" href="styles.css">
 <script src="https://p.trellocdn.com/power-up.min.js"></script>
 <script>
 const t = TrelloPowerUp.iframe();
@@ -9,7 +14,7 @@ const slider = document.getElementById("slider");
 const value = document.getElementById("value");
 
 slider.oninput = async () => {
-    value.textContent = slider.value;
+    value.textContent = slider.value + "xp";
 
     await t.set("card", "shared", "priority", slider.value);
 };
