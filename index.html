@@ -15,7 +15,11 @@
                     {
                         text: "Hello World",
                         callback: function (t) {
-                            return t.card().then(card => alert('Hello World'))
+                            return t.popup({
+                            title: 'Priorität einstellen',
+                            url: './slider.html',
+                            height: 120
+                            });
                         }
                     }
                 ]
