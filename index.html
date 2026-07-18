@@ -13,16 +13,27 @@
             'card-buttons': function(t, options) {
                 return [
                     {
-                        text: "Hello World",
+                        text: "xp-ToDo",
                         callback: function (t) {
                             return t.popup({
-                            title: 'Priorität einstellen',
+                            title: 'xp einstellen',
                             url: './slider.html',
                             height: 120
                             });
                         }
                     }
                 ]
+            },
+
+            'card-back-section': function(t) {
+                return {
+                title: 'xp-ToDO',
+                content: {
+                    type: 'iframe',
+                    url: './back-section.html',
+                    height: 80
+                }
+                };
             }
         })
     </script>
