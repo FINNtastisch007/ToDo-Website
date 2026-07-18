@@ -6,7 +6,7 @@
     <script>
         const xp_count = document.getElementById("xp_count");
         const t = TrelloPowerUp.iframe();
-        let xp = await t.get("card", "shared", "priority", "No xp set yet");
+        let xp = t.get("card", "shared", "priority", "No xp set yet");
         xp_count.textContent = xp;
     </script>
 </body>
