@@ -1,26 +1,27 @@
 <body>
     <link rel="stylesheet" href="styles.css">
     <span id="xp_count">No xp set yet...</span>
-    <button id="button" onclick="popUp()">change XP</button>
+    <button id="button">change XP</button>
 
     <script src="https://p.trellocdn.com/power-up.min.js"></script>
     <script>
         const xp_count = document.getElementById("xp_count");
-        
+
         const t = window.TrelloPowerUp.iframe();
-        
+
         async function xpGet() {
-            let xp =  await t.get("card", "shared", "priority", "No xp set yet...");
+            let xp = await t.get("card", "shared", "priority", "No xp set yet...");
             xp_count.textContent = xp;
         };
-        
-        function popUp() {
+
+        document.getElementById("button").addEventListener("click", function (e) {
             t.popup({
-                            title: 'xp einstellen',
-                            url: './slider.html',
-                            height: 120
-                            });
-        }
+                title: "XP einstellen",
+                url: "./slider.html",
+                height: 120,
+                mouseEvent: e
+            });
+        });
 
         xpGet();
 
