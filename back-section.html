@@ -12,7 +12,7 @@
 
         async function xpGet() {
             let xp = await t.get("card", "shared", "priority", "No xp set yet...");
-            xp_count.textContent = xp;
+            xp_count.textContent = xp + ((xp!="No xp set yet...") ? "xp" : "");
         };
 
         document.getElementById("button").addEventListener("click", function (e) {
