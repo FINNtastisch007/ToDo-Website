@@ -14,7 +14,7 @@
         const t = window.TrelloPowerUp.iframe();
 
         async function xpGet() {
-            let xp = await t.get("card", "shared", "priority", "No xp set yet...");
+            let xp = await t.get("card", "shared", "xp", "No xp set yet...");
             xp_count.textContent = xp + ((xp!="No xp set yet...") ? "xp" : "");
         };
 
