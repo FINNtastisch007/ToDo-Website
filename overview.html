@@ -19,16 +19,16 @@
             console.log(card.dueComplete);
             if (!card.dueComplete) continue;
 
-            const completed = new Date(card.dateCompleted);
+            // const completed = new Date(card.dateCompleted);
 
-            const today = new Date();
+            // const today = new Date();
 
-            const isToday =
-                completed.getFullYear() === today.getFullYear() &&
-                completed.getMonth() === today.getMonth() &&
-                completed.getDate() === today.getDate();
+            // const isToday =
+            //     completed.getFullYear() === today.getFullYear() &&
+            //     completed.getMonth() === today.getMonth() &&
+            //     completed.getDate() === today.getDate();
 
-            if (!isToday) continue;
+            // if (!isToday) continue;
 
             const xp = await t.get(card.id, "shared", "xp");
 
