@@ -10,7 +10,7 @@
     const total_xp_count = document.getElementById("total_xp_count");
 
     async function getCompletedXp() {
-        const cards = await t.cards("id", "name", "dueComplete", "dateCompleted");
+        const cards = await t.cards("id", "name", "dueComplete");
 
         let totalXp = 0;
 
