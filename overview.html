@@ -10,7 +10,7 @@
     const total_xp_count = document.getElementById("total_xp_count");
 
     async function getCompletedXp() {
-        const cards = await t.cards("id", "name", "dueComplete");
+        const cards = await t.cards("id", "name", "dueComplete", "dateCompleted");
 
         let totalXp = 0;
 
@@ -18,6 +18,17 @@
             console.log(card.id);
             console.log(card.dueComplete);
             if (!card.dueComplete) continue;
+
+            const completed = new Date(card.dateCompleted);
+
+            const today = new Date();
+
+            const isToday =
+                completed.getFullYear() === today.getFullYear() &&
+                completed.getMonth() === today.getMonth() &&
+                completed.getDate() === today.getDate();
+
+            if (!isToday) continue;
 
             const xp = await t.get(card.id, "shared", "xp");
 
