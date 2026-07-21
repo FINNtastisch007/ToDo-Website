@@ -1,1 +1,32 @@
-<h1>Hello</h1>
+<body>
+    <h1 id="total_xp_count">0xp</h1>
+</body>
+
+<link rel="stylesheet" href="styles.css">
+
+<script src="https://p.trellocdn.com/power-up.min.js"></script>
+<script>
+    const t = window.TrelloPowerUp.iframe();
+    const total_xp_count = document.getElementById("total_xp_count");
+
+    async function getCompletedXp() {
+        const cards = await t.cards("id", "name", "dueComplete");
+
+        let totalXp = 0;
+
+        for (const card of cards) {
+            if (!card.dueComplete) continue;
+
+            const xp = await t.get(card.id, "shared", "xp");
+            totalXp += Number(xp || 0);
+        }
+
+        return totalXp;
+    }
+
+    getCompletedXp().then(total => {
+        console.log("Gesamt-XP:", total);
+        total_xp_count.textContent = total + "xp";
+
+    });
+</script>
