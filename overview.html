@@ -15,9 +15,12 @@
         let totalXp = 0;
 
         for (const card of cards) {
+            console.log(card.id);
+            console.log(card.dueComplete);
             if (!card.dueComplete) continue;
 
             const xp = await t.get(card.id, "shared", "xp");
+
             totalXp += Number(xp || 0);
         }
 
