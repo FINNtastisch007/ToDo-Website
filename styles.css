@@ -11,6 +11,10 @@
     justify-content: center;
     align-items: center;
 }
+
+#back-section-icon {
+  display:inline-block;
+}
 /*
 
 .header {
@@ -56,6 +60,7 @@
     background: #0C66E4;
     cursor: pointer;
 }
+
 
 @charset "UTF-8";
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -1041,4 +1046,5 @@ tbody {
 .quiet-button.mod-gutter {
   padding-left: 38px;
 }
+
 

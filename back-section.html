@@ -2,8 +2,11 @@
     <link rel="stylesheet" href="styles.css">
     <!-- <link rel="stylesheet" href="https://p.trellocdn.com/power-up.css" /> -->
     
-    <button id="button"><h1 id="xp_count">No xp set yet...</h1></button>
-
+    <button id="button" style="display: flex; gap: 10px;">
+        <h1 id="xp_count">No xp set yet...</h1>
+        <img id="back-section-icon" src="sliders.svg" alt="setting">
+    </button>
+    
     <script src="https://p.trellocdn.com/power-up.min.js"></script>
     <script>
         const xp_count = document.getElementById("xp_count");
