@@ -10,11 +10,12 @@
     const total_xp_count = document.getElementById("total_xp_count");
 
     async function getCompletedXp() {
-        const cards = await t.cards("id", "name", "dueComplete");
+        const cards = await t.cards("id", "name", "all");
 
         let totalXp = 0;
 
         for (const card of cards) {
+            console.log(card.all);
             console.log(card.id);
             console.log(card.dueComplete);
             if (!card.dueComplete) continue;
