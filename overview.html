@@ -10,12 +10,23 @@
     const total_xp_count = document.getElementById("total_xp_count");
 
     async function getCompletedXp() {
+
+        const response = await fetch(
+            "https://trello.com/card/6a58b1276c564f817194d25f.json",
+            {
+                credentials: "include"
+            }
+        );
+
+        const data = await response.json();
+        console.log(data);
+
         const cards = await t.cards("all");
 
         let totalXp = 0;
 
         for (const card of cards) {
-            console.log(JSON.stringify(card, null, 2));
+            console.log(card);
             console.log(card.id);
             console.log(card.dueComplete);
             if (!card.dueComplete) continue;
