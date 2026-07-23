@@ -20,24 +20,25 @@
                 `https://api.trello.com/1/cards/${card.id}?key=de854d2dfce7b139b90484b2b7c4e7c1&token=ATTA1acd7fe3b427273d02f8b45acf48d11a2be9e054b3f6c69b96e170014f931087F06E65AE&fields=all`
             );
 
-            const response_ = await response.json();
+            const card_data = await response.json();
 
-            console.log(response_);
+            console.log(card_data);
+            console.log(card_data.dateCompleted);
             console.log(card);
             console.log(card.id);
             console.log(card.dueComplete);
             if (!card.dueComplete) continue;
 
-            // const completed = new Date(card.dateCompleted);
+            const completed = new Date(card_data.dateCompleted);
 
-            // const today = new Date();
+            const today = new Date();
 
-            // const isToday =
-            //     completed.getFullYear() === today.getFullYear() &&
-            //     completed.getMonth() === today.getMonth() &&
-            //     completed.getDate() === today.getDate();
+            const isToday =
+                completed.getFullYear() === today.getFullYear() &&
+                completed.getMonth() === today.getMonth() &&
+                completed.getDate() === today.getDate();
 
-            // if (!isToday) continue;
+            if (!isToday) continue;
 
             const xp = await t.get(card.id, "shared", "xp");
 
